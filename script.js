@@ -20,7 +20,6 @@ let request = new XMLHttpRequest();
 
 request.open("GET", requestURL);
 
-
 request.responseType = "json";
 request.send();
 
@@ -44,23 +43,28 @@ function populateSection(object) {
   selectHeader.appendChild(createP);
 }
 
+
+
 function showHeroes(object) {
-  // Col1 
+  const createArticleCol1 = document.createElement("article");
+  selectSection.appendChild(createArticleCol1);
+  
+  // Column 1 
   const createFirstH2Col1 = document.createElement("h2");
   createFirstH2Col1.textContent = object["members"][0]["name"];
-  selectSection.appendChild(createFirstH2Col1);
+  createArticleCol1.appendChild(createFirstH2Col1);
 
   const createFirstPCol1 = document.createElement("p");
   createFirstPCol1.textContent = "Secret identity: " + object["members"][0]["secretIdentity"];
-  selectSection.appendChild(createFirstPCol1);
+  createArticleCol1.appendChild(createFirstPCol1);
 
-  const createSecondP1Col1 = document.createElement("p");
-  createSecondP1Col1.textContent = "Age: " + object["members"][0]["age"];
-  selectSection.appendChild(createSecondP1Col1);
+  const createSecondPCol1 = document.createElement("p");
+  createSecondPCol1.textContent = "Age: " + object["members"][0]["age"];
+  createArticleCol1.appendChild(createSecondPCol1);
 
-  const createThirdP1Col1 = document.createElement("p");
-  createThirdP1Col1.textContent = "Superpowers:";
-  selectSection.appendChild(createThirdP1Col1);
+  const createThirdPCol1 = document.createElement("p");
+  createThirdPCol1.textContent = "Superpowers:";
+  createArticleCol1.appendChild(createThirdPCol1);
 
   const createUlCol1 = document.createElement("ul");
   
@@ -72,24 +76,27 @@ function showHeroes(object) {
   
   // innerHTML property sets the HTML contents of an element on a web page.
   createUlCol1.innerHTML = superpowersCol1;
-  selectSection.appendChild(createUlCol1);
+  createArticleCol1.appendChild(createUlCol1);
   
-  // Col2
+  // Column 2 
+  const createArticleCol2 = document.createElement("article");
+  selectSection.appendChild(createArticleCol2);
+
   const createH2Col2 = document.createElement("h2");
   createH2Col2.textContent = object["members"][1]["name"];
-  selectSection.appendChild(createH2Col2);
+  createArticleCol2.appendChild(createH2Col2);
 
   const createFirstPCol2 = document.createElement("p");
   createFirstPCol2.textContent = `Secret Identity: ${object["members"][1]["secretIdentity"]}`;
-  selectSection.appendChild(createFirstPCol2);
+  createArticleCol2.appendChild(createH2Col2);
 
   const createSecondPCol2 = document.createElement("p");
   createSecondPCol2.textContent = `Age: ${object["members"][1]["age"]}`;
-  selectSection.appendChild(createSecondPCol2);
+  createArticleCol2.appendChild(createSecondPCol2);
 
   const createThirdPCol2 = document.createElement("p");
   createThirdPCol2.textContent = "Superpowers: ";
-  selectSection.appendChild(createThirdPCol2);
+  createArticleCol2.appendChild(createThirdPCol2);
 
   const createUlCol2 = document.createElement("ul");
   
@@ -100,24 +107,27 @@ function showHeroes(object) {
   }
 
   createUlCol2.innerHTML = superpowersCol2;
-  selectSection.appendChild(createUlCol2);
+  createArticleCol2.appendChild(createUlCol2);
 
-  // Col3
+  // Column 3
+  const createArticleCol3 = document.createElement("article");
+  selectSection.appendChild(createArticleCol3);
+
   const createH2Col3 = document.createElement("h2");
   createH2Col3.textContent = object["members"][2]["name"];
-  selectSection.appendChild(createH2Col3);
+  createArticleCol3.appendChild(createH2Col3);
 
   const createFirstPCol3 = document.createElement("p");
   createFirstPCol3.textContent = "Secret identity: " + object["members"][2]["secretIdentity"];
-  selectSection.appendChild(createFirstPCol3);
+  createArticleCol3.appendChild(createFirstPCol3);
 
   const createSecondPCol3 = document.createElement("p");
   createSecondPCol3.textContent = `Age: ${object["members"][2]["age"]}`;
-  selectSection.appendChild(createSecondPCol3);
+  createArticleCol3.appendChild(createSecondPCol3);
 
   const createThirdPCol3 = document.createElement("p");
   createThirdPCol3.textContent = "Superpowers: ";
-  selectSection.appendChild(createThirdPCol3);
+  createArticleCol3.appendChild(createThirdPCol3);
 
   const createUlCol3 = document.createElement("ul");
 
@@ -129,6 +139,5 @@ function showHeroes(object) {
 
   createUlCol3.innerHTML = superpowersCol3;
 
-  selectSection.appendChild(createUlCol3);
+  createArticleCol3.appendChild(createUlCol3);
 }
-
