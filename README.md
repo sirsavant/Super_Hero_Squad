@@ -3,9 +3,11 @@
 ### What is JSON?
 A text-based file which consists of data structured in javascript like objects with property-value pairs and arrays. 
 * JSON exists as a string - useful when you want to transmit data across a network. It needs to be converted to a native JavaScript object when you want to access the data. JavaScript provides a global **JSON** object that has methods available for converting between the two.
+
+> **Note:** Converting a string to a native object is called *deserialization,* while converting a native object to a string so it can be transmitted across the network is called *serialization.*
+
 * A JSON string can be stored in its own file, which is a text file with an extension of `.json,` and a MIME type of `appplication/json`.
 * You can include the same basic data types inside JSON as you can in a standard JavaScript object - strings, numbers, arrays, booleans, and other object literals.
-
 
 
 Example of a JSON file [HERE](https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json).
@@ -16,7 +18,7 @@ Example of a JSON file [HERE](https://mdn.github.io/learning-area/javascript/ooj
 2. An image file - image/png
 3. A JSON file - application/json
 
-> **Note:** Converting a string to a native object is called *deserialization,* while converting a native object to a string so it can be transmitted across the network is called *serialization.*
+
 
 ### Uses
 * It is commonly used for transmitting data in web applications (example: sending some data from the server to the client, so it can be displayed on a web page, or vice versa).
