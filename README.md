@@ -1,6 +1,6 @@
 # Working_With_JSON (JavaScript)
 
-### What is JSON?
+### What is JSON (JavaScript Object Notation)?
 A text-based file which consists of data structured in javascript like objects with property-value pairs and arrays. 
 * JSON exists as a string - useful when you want to transmit data across a network. It needs to be converted to a native JavaScript object when you want to access the data. JavaScript provides a global **JSON** object that has methods available for converting between the two.
 

@@ -8,45 +8,52 @@ XMLHttpRequest (often called XHR) - A JavaScript object that allows us to make n
 
 */
 
-// select HTML elements using the querySelector method and store them into variables.
+// (1)
 const selectHeader = document.querySelector("header");
 const selectSection = document.querySelector("section");
 
-//// Obtaining the JSON
-// store the URL where the JSON is located into a variable.
+// (2)
 const requestURL = "https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json";
 
+// (3)
 let request = new XMLHttpRequest();
 
+// (4)
 request.open("GET", requestURL);
 
+// (5)
 request.responseType = "json";
+
+// (6)
 request.send();
 
+// (7)
 request.onload = function() {
    const superHeroes = request.response;
    populateHeader(superHeroes);
-   populateSection(superHeroes);
+   populateSubHeader(superHeroes);
    showHeroes(superHeroes);
 }
 
+// (8)
 function populateHeader(object) {
-  // create element > assign textContent to it > appendChild to the html element on the page.
   const createH1 = document.createElement("h1");
   createH1.textContent = object["squadName"];
   selectHeader.appendChild(createH1);
 }
 
-function populateSection(object) {
+// (9)
+function populateSubHeader(object) {
   const createP = document.createElement("p");
   createP.textContent = `Hometown: ${object["homeTown"]} // Formed: ${object["formed"]}`;
   selectHeader.appendChild(createP);
 }
 
+// (10)
 function showHeroes(object) {
   const heroes = object["members"];
 
-  for (a = 0; a < heroes.length; a++) {
+  for (let i = 0; i < heroes.length; i++) {
     const createArticle = document.createElement("article");
     const heroName = document.createElement("h2");
     const secretIdentity = document.createElement("p");
@@ -54,29 +61,25 @@ function showHeroes(object) {
     const superpower = document.createElement("p");
     const superpowersList = document.createElement("ul");
 
-    heroName.textContent = heroes[a]["name"];
+    heroName.textContent = heroes[i]["name"];
     createArticle.appendChild(heroName);
 
-    secretIdentity.textContent = `Secret identity: ${heroes[a]["secretIdentity"]}`;
+    secretIdentity.textContent = `Secret identity: ${heroes[i]["secretIdentity"]}`;
     createArticle.appendChild(secretIdentity);
 
-    age.textContent = `Age: ${heroes[a]["age"]}`;
+    age.textContent = `Age: ${heroes[i]["age"]}`;
     createArticle.appendChild(age);
 
     superpower.textContent = "Superpowers: ";
     createArticle.appendChild(superpower);
 
 
-    
-    for(b = 0; b < heroes[a]["powers"][a].length; b++) {
-      superpowersList.innerHTML += `<li>${heroes[a]["powers"][b]}</li>`;
-      console.log("test");
+    for(let j = 0; j < heroes[i]["powers"].length; j++) {
+      superpowersList.innerHTML += `<li>${heroes[i]["powers"][j]}</li>`;
     }
 
     createArticle.appendChild(superpowersList);
 
     selectSection.appendChild(createArticle);
   }
-
-
 }
