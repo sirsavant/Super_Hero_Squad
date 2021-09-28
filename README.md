@@ -1,35 +1,32 @@
-# Working_With_JSON (JavaScript)
+# Super_Hero_Squad
+This displays information about three super heroes and their attributes. My focus was to learn how to work with JSON files. 
 
-### What is JSON (JavaScript Object Notation)?
-A text-based file which consists of data structured in javascript like objects with property-value pairs and arrays. 
-* JSON exists as a string - useful when you want to transmit data across a network. It needs to be converted to a native JavaScript object when you want to access the data. JavaScript provides a global **JSON** object that has methods available for converting between the two.
+## index.html
+In the head tag, I linked a google font and the style.css file.
+In the body, there is a blank header and section tag which JavaScript will use to add content to. A script tag on on the bottom of the body tag links the script.js file.
 
-> **Note:** Converting a string to a native object is called *deserialization,* while converting a native object to a string so it can be transmitted across the network is called *serialization.*
+## style.css
+The content within the style.css is taken from https://github.com/mdn/learning-area/blob/master/javascript/oojs/json/style.css
 
-* A JSON string can be stored in its own file, which is a text file with an extension of `.json,` and a MIME type of `appplication/json`.
-* You can include the same basic data types inside JSON as you can in a standard JavaScript object - strings, numbers, arrays, booleans, and other object literals.
+## script.js
+### **Process**
+
+1. Initialize two variables to select the header and section using the `querySelector()` method.
+2. Stored the URL where the JSON is located into a variable called `requestURL`.
+3. Initialized a variable called `request` as a new object to `XMLHttpRequest()`.
+4. Used `request.open("GET", requestURL)` to initlize a request. I placed two parameters. The first parameter as the HTTP method GET (used to retrieve data) and the requestURL (URL where the JSON file is located).
+5. Set the `request.responseType = "json";` so the XHR knows the server will be returning JSON and to convert the JSON into a JavaScript object behind the scenes.
+6. The `request.send()` method sends the request.
+
+7. The `request.onload` executes a function when the JSON file is loaded, and populateHeader, populateSubHeader, and showHeroes functions are invoked.
+
+**THE PROCESS** for the next steps all involved creating an element in JavaScript using the createElement() method > adding text to the created element using the textContent property or the innerHTML property > using the appendChild() method to append it to a parent node. Each function also took in a parameter called "object" that referenced the "request.response".
+
+8. Created a function called `populateHeader()`. It populates the header with the "squadName" in the JSON file. It creates an h1 element > adds the "squadName" from the JSON file > appends it as the first child in the header.
+
+9. Created a populateSubHeader function which adds to the header tag. A `p` element is created > added textContent(Hometown and formed values from the JSON file) > appended it to the header tag.
+
+10. Created a showHeroes function which references the object["members"] values in the json file. It goes through a for loop which iterates through each object["members"] and displays information about each object["member"]. An inner for loop is created to iterate though each object["members"]["powers"] to display the superheroes superpower. An article tag is created within JavaScript and when an object["member"] is created after going through the outer for loop once, it is appended to the article tag. Then the article is appended within the section tag.
 
 
-Example of a JSON file [HERE](https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json).
-
-*MIME Type:* A string that is sent with file describing what type of file it is. 
-*Examples*
-1. An audio file - audio/ogg
-2. An image file - image/png
-3. A JSON file - application/json
-
-
-
-### Uses
-* It is commonly used for transmitting data in web applications (example: sending some data from the server to the client, so it can be displayed on a web page, or vice versa).
-* JSON can be used independently from JavaScript and many programming environments feature the ability to parse and generate JSON.
-
-## Other notes
-* JSON is purely a string with a specified data format - it contains only properties, no methods.
-* JSON requires double quotes to be used around strings and property names. Single quotes are not vailed other than surrounding the entire JSON string. ONLY quoted strings may be used as properties.
-* A single misplaced comma or colon will cause a JSON file to stop working. Make sure to validate any data you are attempting to use. You can validate JSON using an application like [JSONLint](https://jsonlint.com/).
-* JSON can actually take the form of any data type that is valid for inclusion inside JSON, not just arrays or objects. So for example, a single string or number would be valid JSON.
-
-**Keywords:** JSON, MIME type.
-
-**Referenced:** https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
+*Referenced: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON*
