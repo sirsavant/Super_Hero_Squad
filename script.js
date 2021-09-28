@@ -73,7 +73,6 @@ function showHeroes(object) {
     superpower.textContent = "Superpowers: ";
     createArticle.appendChild(superpower);
 
-
     for(let j = 0; j < heroes[i]["powers"].length; j++) {
       superpowersList.innerHTML += `<li>${heroes[i]["powers"][j]}</li>`;
     }

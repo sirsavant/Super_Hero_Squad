@@ -9,26 +9,24 @@ In the body, there is a blank header and section tag which JavaScript will use t
 The content within the style.css is taken from https://github.com/mdn/learning-area/blob/master/javascript/oojs/json/style.css
 
 ## script.js
-### **Overview**
+### **Process**
 
-### Variable initialization
-1. Initialize two variables to select the header and section using the querySelector() method.
-2. Stored the URL where the JSON is located into a variable called "requestURL".
-3. Initialized a variable called "request" as a new object to XMLHttpRequest().
-4. Used request.open("GET", requestURL) to initlize a request. I placed two parameters. The first parameter as the HTTP method GET (used to retrieve data) and the requestURL (URL where the JSON file is located).
-5. Set the request.responseType = "json" so the XHR knows the server will be returning JSON and to convert the JSON into a JavaScript object behind the scenes.
-6. The request.send() method sends the request.
+1. Initialize two variables to select the header and section using the `querySelector()` method.
+2. Stored the URL where the JSON is located into a variable called `requestURL`.
+3. Initialized a variable called `request` as a new object to `XMLHttpRequest()`.
+4. Used `request.open("GET", requestURL)` to initlize a request. I placed two parameters. The first parameter as the HTTP method GET (used to retrieve data) and the requestURL (URL where the JSON file is located).
+5. Set the `request.responseType = "json";` so the XHR knows the server will be returning JSON and to convert the JSON into a JavaScript object behind the scenes.
+6. The `request.send()` method sends the request.
 
-7. The request.onload executes a function when the JSON file is loaded, and populateHeader, populateSubHeader, and showHeroes functions are invoked.
+7. The `request.onload` executes a function when the JSON file is loaded, and populateHeader, populateSubHeader, and showHeroes functions are invoked.
 
-**The process** for the next steps all involved creating an element in JavaScript using the createElement() method > adding text to the created element using the textContent property or the innerHTML property > using the appendChild() method to append it to a parent node. Each function also took in a parameter called "object" that referenced the "request.response". This provided the object within the JSON file.
+**THE PROCESS** for the next steps all involved creating an element in JavaScript using the createElement() method > adding text to the created element using the textContent property or the innerHTML property > using the appendChild() method to append it to a parent node. Each function also took in a parameter called "object" that referenced the "request.response".
 
-8. Created a function called populateHeader. It populates the header with the "squadName" in the JSON file. The function uses **The process** where I create an h1 element > add the "squadName" from the JSON file > appends it as the first child in the header.
+8. Created a function called `populateHeader()`. It populates the header with the "squadName" in the JSON file. It creates an h1 element > adds the "squadName" from the JSON file > appends it as the first child in the header.
 
-9. Created a populateSubHeader function which adds to the header tag. I created a "p" element, added textContent(Hometown and formed values from the JSON file) > appended it to the header tag.
+9. Created a populateSubHeader function which adds to the header tag. A `p` element is created > added textContent(Hometown and formed values from the JSON file) > appended it to the header tag.
 
-10. Created a showHeroes function which references the object["members"] values in the json file. It goes through a for loop which loops through each object["members"] and displays information about each object["member"]. An inner for loop is created to loop though each object["members"]["powers"] to display all the powers. An article tag is created within JavaScript and when one object["member"] is created, it is appended to the article tag.
-
+10. Created a showHeroes function which references the object["members"] values in the json file. It goes through a for loop which iterates through each object["members"] and displays information about each object["member"]. An inner for loop is created to iterate though each object["members"]["powers"] to display the superheroes superpower. An article tag is created within JavaScript and when an object["member"] is created after going through the outer for loop once, it is appended to the article tag. Then the article is appended within the section tag.
 
 
 *Referenced: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON*
