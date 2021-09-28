@@ -1,6 +1,6 @@
 /* Referenced: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
 
-keywords: JSON, XMLHttpRequest, HTTP methods,
+keywords: JSON, XMLHttpRequest, HTTP methods
 
 JSON - A text-based file based on the data structured from a Javascript object which consists of property-value pairs and arrays.
 
